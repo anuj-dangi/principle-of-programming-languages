@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+//find all the 4 digit number by which multiplying a single digit comes the reverse fo that 4 digit
 int reverseFun(int i)
 {
     int rev = 0;
