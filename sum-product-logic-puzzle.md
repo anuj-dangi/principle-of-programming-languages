@@ -8,11 +8,11 @@ This is a classic logic puzzle involving two professors—**Prof. A** and **Prof
 
 Two natural numbers \( x \) and \( y \) are chosen such that:
 
-- \( 2 \leq x < y \leq 99 \)
+- (2 < x,y < 99)
 
 Then:
 - **Prof. A** is told the **sum** \( S = x + y \)
-- **Prof. B** is told the **product** \( P = x \times y \)
+- **Prof. B** is told the **product** \( P = x * y \)
 
 The following conversation occurs:
 
