@@ -8,7 +8,7 @@
 This project consists of two files:
 
 - `main.c` — The main program.
-- `function.c` — Contains a function definition to be used by `main.c`.
+- `function.c` — Contains a function definition to be used by `main.c` .
 
 ---
 
