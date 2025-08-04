@@ -1,10 +1,7 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main()
-{
-    long int f;
-
-    printf("%d %d\n", sizeof(f), f );
-
+int main() {
+    printf("Size of int: %zu bytes\n", sizeof(int));
+    printf("Size of pointer: %zu bytes\n", sizeof(void *));
     return 0;
 }
