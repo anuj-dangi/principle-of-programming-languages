@@ -1,44 +1,68 @@
-#include <stdio.h>
+// #include <stdio.h>
  
-int main()
-{
-    char a[10], *x;
+// int main()
+// {
+// //     char a[10], *x;
 
-    a[2] = 'a';
+// //     a[2] = 'a';
 
-    printf("%p %p\n", a, x);
+// //     printf("%p %p\n", a, x);
 
-    x = a;
+// //     x = a;
 
-    printf("%p %p\n", a, x);
+// //     printf("%p %p\n", a, x);
 
-    x = a+1;
+// //     x = a+1;
 
-    printf("%p %p\n", a, x);
+// //     printf("%p %p\n", a, x);
 
-    //a = x;
-    //expression must be a modifiable lvalue
-//     pointer.c: In function 'main':
-// pointer.c:17:7: error: assignment to expression with array type
-//      a = x;
+// //     //a = x;
+// //     //expression must be a modifiable lvalue
+// // //     pointer.c: In function 'main':
+// // // pointer.c:17:7: error: assignment to expression with array type
+// // //      a = x;
 
-    x = &a; //only warning no error
+// //     x = &a; //only warning no error
 
-    printf("%p %p\n", a, x);
+// //     printf("%p %p\n", a, x);
 
-    // pointer.c: In function 'main':
-    // pointer.c:23:7: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
-    //  x = &a;
+// //     // pointer.c: In function 'main':
+// //     // pointer.c:23:7: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+// //     //  x = &a;
 
-    x = a+2;
+// //     x = a+2;
 
-    printf("%p %p %c\n", a, x, *x);
+// //     printf("%p %p %c\n", a, x, *x);
 
-    x = *(a+2); //
+// //     x = *(a+2); //
 
-    printf("%p %p\n", a, x);
-    // pointer.c:31:7: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
-    //  x = *(a+2);
+// //     printf("%p %p\n", a, x);
+// //     // pointer.c:31:7: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+// //     //  x = *(a+2);
     
-    return 0;
+// //     return 0;
+
+
+// }
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int a = 6;
+
+    if(a<5) a=10; else if(a==5);
+    a=0;
+    // else  a=9;
+
+    printf("%d", a);
+
+    a
+    =
+    100;
+
+    printf("He"
+    "llo"
+                        "9");
+
 }
