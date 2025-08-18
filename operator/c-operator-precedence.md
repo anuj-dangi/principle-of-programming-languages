@@ -18,11 +18,11 @@ Operator precedence determines the order in which operators are evaluated in an 
 | 8          | `==`   `!=`                                        | Equality, Inequality                                                                          | Left-to-Right   |
 | 9          | `&`                                                | Bitwise AND                                                                                   | Left-to-Right   |
 | 10         | `^`                                                | Bitwise XOR                                                                                   | Left-to-Right   |
-| 11         | `|`                                                | Bitwise OR                                                                                    | Left-to-Right   |
+| 11         | `\|`                                                | Bitwise OR                                                                                    | Left-to-Right   |
 | 12         | `&&`                                               | Logical AND                                                                                   | Left-to-Right   |
-| 13         | `||`                                               | Logical OR                                                                                    | Left-to-Right   |
+| 13         | `\|\|`                                               | Logical OR                                                                                    | Left-to-Right   |
 | 14         | `?:`                                               | Ternary conditional                                                                           | Right-to-Left   |
-| 15         | `=`   `+=`   `-=`   `*=`   `/=`   `%=`   `<<=`   `>>=`   `&=`   `^=`   `|=` | Assignment operators                                                                          | Right-to-Left   |
+| 15         | `=`   `+=`   `-=`   `*=`   `/=`   `%=`   `<<=`   `>>=`   `&=`   `^=`   `\|=` | Assignment operators                                                                          | Right-to-Left   |
 | 16         | `,`                                                | Comma operator                                                                                | Left-to-Right   |
 
 ---
