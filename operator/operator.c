@@ -20,7 +20,7 @@ int main()
 
     if(-1)
     {
-        printf("%d\n", q);
+        printf("neg is true\n");
     }
 
     printf("%d\n", q);
@@ -30,9 +30,13 @@ int main()
 
     printf("%d\n", (b++)+(++c));    //can't do b+++c++;
 
-    int d;
+    int d = 2;
 
     //printf("%d\n", 5<<3-7*2);   //-, *  is at higher precedence then <<
+
+    (1 == 1) ? printf("true\n") : printf("false\n");
+
+    d>2 ? printf("") : printf("");
 
     return 0;
 }

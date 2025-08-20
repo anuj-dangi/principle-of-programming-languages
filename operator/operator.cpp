@@ -22,7 +22,7 @@ int main()
 
     printf("%d\n", q);
 
-    bool d = 34;
+    bool d = -78;
     cout << d << endl;
     return 0;
 }
