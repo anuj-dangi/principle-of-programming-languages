@@ -1,46 +1,54 @@
+# How to Create and Use a `.h` File in C
 
-# 🛠️ How to Create and Use a Header File in C
+## 1. Create the Header File
 
----
+A header file contains **declarations** (not definitions).
 
-## 📁 Overview
-
-This guide explains how to create and use a **header file (`.h`)** in C, and also answers a common question:  
-**Why do we use `#include <...>` vs `#include "..."`?**
-
-Example files used in this guide:
-- `main.c` — Main program
-- `header.h` — Custom header file containing the `add()` function
-
----
-
-## 📄 Step-by-Step: Creating a Header File
-
-### ✅ Step 1: Create the Header File
-
-Create a file named `header.h` with the following content:
+**mathlib.h**
 
 ```c
-int add(int x, int y)
-{
-    return x + y;
+#ifndef MATHLIB_H   // include guard (prevents multiple inclusion)
+#define MATHLIB_H
+
+int add(int a, int b);      // function declaration
+int subtract(int a, int b);
+
+#endif
+```
+
+---
+
+## 2. Create the Implementation File
+
+Write the **definitions** in a `.c` file.
+
+**mathlib.c**
+
+```c
+#include "mathlib.h"  // include your header
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
 }
 ```
 
-> Note: Normally, header files **only contain function declarations**, not definitions. But for this simple demo, the full definition is inside the header.
-
 ---
 
-### ✅ Step 2: Include the Header in Your C File
+## 3. Use the Header in Your Main Program
 
-In `main.c`, include the header file using double quotes:
+Include your header in the main source file.
+
+**main.c**
 
 ```c
 #include <stdio.h>
-#include "header.h"
+#include "mathlib.h"  // include the header
 
-int main()
-{
+int main() {
     printf("sum is %d\n", add(5, 1234));
     return 0;
 }
@@ -48,54 +56,52 @@ int main()
 
 ---
 
-### ✅ Step 3: Compile and Run
+## 4. Compile the Project
+
+Compile both source files together:
 
 ```bash
-gcc main.c -o program
+gcc main.c mathlib.c -o program
+```
+
+**Why include both `main.c` and `mathlib.c`?**
+
+* `main.c` uses functions declared in `mathlib.h`, but the **actual definitions** are in `mathlib.c`.
+* GCC needs to compile both files and **link them together** to produce an executable.
+* If you only compile `main.c`, the linker will not find the implementation of `add()` and `subtract()`, causing errors.
+
+Run the program:
+
+```bash
 ./program
 ```
 
----
+**Output:**
 
-## 🧠 Why `#include <...>` vs `#include "..."`?
-
-| Syntax               | Used For                | Search Location |
-|----------------------|--------------------------|-----------------|
-| `#include <stdio.h>` | System header files      | System directories like `/usr/include` |
-| `#include "header.h"`| Your own header files    | First checks current directory, then system |
-
-### 🔍 Detailed Explanation:
-
-- `#include <...>` is used for **standard library headers** like `stdio.h`, `stdlib.h`, etc.
-- `#include "..."` is used for **user-defined headers** like `header.h`.
-
-📌 If you write:
-```c
-#include "header.h"
 ```
-The compiler:
-1. First looks in the **current directory**.
-2. If not found, then looks in **system include paths**.
+sum is 1239
+```
 
 ---
 
-## ✅ Best Practices
+## 5. Common Error: Implicit Declaration Warning
 
-| Practice                          | Why It Matters                            |
-|----------------------------------|--------------------------------------------|
-| Use `#include <...>`             | For standard/system headers                |
-| Use `#include "..."`             | For your own custom/project headers        |
-| Separate declaration and logic   | Keep declarations in `.h`, definitions in `.c` |
+If you see:
 
----
+```
+warning: implicit declaration of function 'add'
+```
 
-## 🏁 Summary
+It means the compiler did not see the declaration before usage.
 
-- Header files help you **organize and reuse** function declarations.
-- `#include <...>` → for system headers.
-- `#include "..."` → for your own files.
-- Follow best practices to build scalable and clean C projects.
+✅ Fix: Make sure to `#include "mathlib.h"` at the **top** of `main.c`.
 
 ---
 
-Happy Coding! 🚀
+## ✅ Summary
+
+* `.h` → declarations (interface)
+* `.c` → definitions (implementation)
+* Always use include guards (`#ifndef ... #define ... #endif`) or `#pragma once`
+* Compile **all source files** together to produce the final executable
+* Include both `main.c` and any helper `.c` files so the linker can resolve all function definitions
